@@ -1,7 +1,15 @@
 {
-  "version": 2,
+  "version": 1,
   "projects": {
     "frontend": "apps/frontend",
     "api-connector": "libs/api-connector"
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    }
   }
 }
