@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Configuration} from "../backend";
 import {AuthService} from "./auth.service";
 import {environment} from "../../environments/environment";
@@ -9,7 +9,8 @@ import {environment} from "../../environments/environment";
 export class ConfigurationService {
   private config: Configuration = new Configuration();
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+  }
 
   async init(): Promise<void> {
     const token = await this.authService.getToken();
@@ -17,7 +18,7 @@ export class ConfigurationService {
       credentials: {
         'Bearer': token
       },
-      basePath: environment.backend
+      basePath: environment.backendUrl
     });
   }
 

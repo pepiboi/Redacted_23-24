@@ -1,41 +1,30 @@
-﻿import {Component, OnInit} from '@angular/core';
-import {SampleService} from "./backend";
-import {switchMap, tap} from "rxjs";
+﻿import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  withoutAuth: boolean = false;
-  withAuth: boolean = false;
+export class AppComponent{
+  combobox1: string = 'Klasse 1';
+  combobox2: string = 'Fach A';
+  search: string = '';
+  username: string = 'Robert Grüneis';
 
-  constructor(private sampleService: SampleService) { }
+  tableData: any[] = [
+    { name: 'John Doe', age: 30, email: 'john@example.com', warning: false },
+    { name: 'Jane Smith', age: 25, email: 'jane@example.com', warning: false },
+  ];
 
-  ngOnInit(): void {
-    this.printDisclaimer();
-    this.callRequests();
+  toggleCheckbox(data: any): void {
+    data.warning = !data.warning;
   }
 
-  getClass(value: boolean): string {
-    return value ? 'success' : 'error';
+  onSearch() {
+    console.log('Search button clicked');
   }
 
-  private printDisclaimer() {
-    console.log('-'.repeat(100));
-    console.info('You\'re running the plugin-template!');
-    console.info('It is just a sample, to show how to use the backend API. Feel free to remove it.');
-    console.info('If you start the BackendDev-Server, it is available at https://localhost:7226/swagger/index.html');
-    console.info('If you have implemented new Endpoints, just call the `apiGen` npm-script in package.json');
-    console.log('-'.repeat(100));
-  }
-
-  private callRequests() {
-    this.sampleService.sampleAuthorizeTestGet().pipe(
-      tap(() => this.withoutAuth = true),
-      switchMap(x => this.sampleService.sampleAuthorizeTestGet()),
-      tap(() => this.withAuth = true)
-    ).subscribe()
+  onCustomButtonClick() {
+    console.log('Custom button clicked');
   }
 }

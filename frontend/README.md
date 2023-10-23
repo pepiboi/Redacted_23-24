@@ -1,6 +1,10 @@
 # Frontend
 This project uses [nx](https://nx.dev/)
 
+## Node Modules
+
+Run `yarn install` to install node_modules. (npm install will not work)
+
 ## Development server
 
 Run `nx serve` for a dev server.

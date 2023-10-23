@@ -1,5 +1,5 @@
 ﻿export const environment = {
   production: true,
-  backend: document.location.origin.replace(/\/[\w-]+\.plugin/, '/plugin.backend'),
+  backendUrl: 'http://10.90.0.11:5001',
   devToken: ''
 };

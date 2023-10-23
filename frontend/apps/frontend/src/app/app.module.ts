@@ -1,10 +1,11 @@
 ﻿import {APP_INITIALIZER, NgModule} from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {ApiModule, Configuration} from './backend';
 import {HttpClientModule} from '@angular/common/http';
 import {ConfigurationService} from "./core/configuration.service";
+import { FormsModule } from '@angular/forms';
 
 export function initConfig(configService: ConfigurationService): () => Promise<void> {
   return async () => {
@@ -14,7 +15,7 @@ export function initConfig(configService: ConfigurationService): () => Promise<v
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, ApiModule, HttpClientModule],
+  imports: [BrowserModule, ApiModule, HttpClientModule, FormsModule],
   providers: [
     {
       provide: APP_INITIALIZER,
@@ -31,4 +32,5 @@ export function initConfig(configService: ConfigurationService): () => Promise<v
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

@@ -1,10 +1,44 @@
-<div>
-  <span><b>Without Authorization</b></span><br>
-  <span [ngClass]="getClass(withoutAuth)">
-    {{withoutAuth ? 'Works!' : 'Connection not possible. Is your Backend running?'}}
-  </span><br>
-  <span><b>With Authorization</b></span><br>
-  <span [ngClass]="getClass(withAuth)">
-    {{withAuth ? 'Works!' : 'Connection not possible. Is your Backend running and is your Authorization Token correct?'}}
-  </span>
+<div class="container">
+  <div class="header">
+    <div>
+      <select [(ngModel)]="combobox1" id="combobox1">
+        <option value="Klasse 1">Klasse 1</option>
+        <option value="Klasse 2">Klasse 2</option>
+        <option value="Klasse 3">Klasse 3</option>
+      </select>
+      <select [(ngModel)]="combobox2" id="combobox2">
+        <option value="Fach A">Fach A</option>
+        <option value="Fach B">Fach B</option>
+        <option value="Fach C">Fach C</option>
+      </select>
+    </div>
+    <div class="search-container">
+      <input [(ngModel)]="search" type="text" id="search" class="search-input" placeholder="Suche...">
+      <button (click)="onSearch()" class="search-button">Suchen</button>
+    </div>
+  </div>
+  <p class="welcome">Willkommen {{ username }}!</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Frühwarnung</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of tableData; let i = index" (click)="toggleCheckbox(data)">
+        <td>{{ data.name }}</td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.email }}</td>
+        <td><input type="checkbox" [checked]="data.warning"></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <div class="button-container">
+    <button (click)="onCustomButtonClick()" class="custom-button">Versenden</button>
+  </div>
 </div>
+
