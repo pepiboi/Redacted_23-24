@@ -1,0 +1,20 @@
+@baseUrl = http://localhost:5000
+
+
+################################################## Fruehwarnungen
+GET {{baseUrl}}/Fruehwarnungen/Faecher/abc
+#####
+GET {{baseUrl}}/Fruehwarnungen/Klassen
+#####
+GET {{baseUrl}}/Fruehwarnungen/Personen/abc
+#####
+GET {{baseUrl}}/Fruehwarnungen/Username
+#####
+POST {{baseUrl}}/Fruehwarnungen/PostFruehwarnung
+Content-type: application/json
+
+{
+   "personId": 1,
+   "fach": "abc"
+}
+#####
